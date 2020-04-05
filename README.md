@@ -1,5 +1,9 @@
 # three
 
+> A Vue.js & Three.js project
+
+[https://kohshow.github.io/three/](https://kohshow.github.io/three/)
+
 ## Project setup
 ```
 yarn install

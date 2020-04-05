@@ -1,6 +1,18 @@
 <template>
   <div id="app">
-    <rotate-box></rotate-box>
+    <div>
+      <label for="speed">speed</label>
+      <input 
+        v-model.number="speed"
+        name="speed"
+        id="speed"
+        type="range"
+        min="0.000"
+        max="0.1"
+        step="0.005"
+      />
+    </div>
+    <rotate-box :speed="speed"></rotate-box>
   </div>
 </template>
 
@@ -11,6 +23,11 @@ export default {
   name: "app",
   components: {
     RotateBox
+  },
+  data() {
+    return {
+      speed: 0.02
+    };
   }
 };
 </script>

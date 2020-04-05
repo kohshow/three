@@ -7,6 +7,13 @@ import * as THREE from "three";
 
 export default {
   name: "RotateBox",
+  props: {
+    speed: {
+        required: false,
+        type: Number,
+        default: 0.02
+    }
+  },
   data() {
     const scene = new THREE.Scene();
     const renderer = null;
@@ -19,7 +26,6 @@ export default {
   },
   mounted() {
     const $canvas = document.getElementById("canvas");
-    // canvasを後付けで設定する方法あったら教えてほしいー
     this.renderer = new THREE.WebGLRenderer({
       antialias: true,
       canvas: $canvas
@@ -36,8 +42,8 @@ export default {
     animate() {
       requestAnimationFrame(this.animate);
 
-      this.cube.rotation.x += 0.02;
-      this.cube.rotation.y += 0.02;
+      this.cube.rotation.x += this.speed;
+      this.cube.rotation.y += this.speed;
 
       this.renderer.render(this.scene, this.camera);
     }
